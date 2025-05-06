@@ -5,6 +5,7 @@ namespace App\Http\Resources\V1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+// Recurso JSON para transformar el modelo Location en una respuesta API personalizada
 class LocationResource extends JsonResource
 {
     /**
@@ -15,10 +16,10 @@ class LocationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'code' => $this->code,
-            'name' => $this->name,
-            'image' => $this->image,
-            'creationDate' => $this->created_at,
+            'code' => $this->code, // Código de la sede
+            'name' => $this->name, // Nombre de la sede
+            'image' => $this->image,  // URL de la imagen de la sede
+            'creationDate' => $this->created_at, // Fecha de creación (campo creado automáticamente por Eloquent)
             
         ];
     }

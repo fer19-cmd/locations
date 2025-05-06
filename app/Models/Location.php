@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     use HasFactory;
+    // Atributos que se pueden asignar masivamente (mass assignment)
     protected $fillable = [
-        'code',
-        'name',
-        'image',
+        'code', // Código identificador único de la sede
+        'name', // Nombre de la sede
+        'image', // URL de la imagen de la sede
     ];
 
     /**

@@ -13,6 +13,7 @@ class LocationController extends Controller
      */
     public function index()
     {
+        //Devuelve la lista de sedes desde la base de datos
         return  LocationResource::collection(location::all());
     }
 

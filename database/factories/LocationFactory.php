@@ -14,6 +14,7 @@ class LocationFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    // // Lista de URLs de imágenes para asignar aleatoriamente a cada sede.
     public function definition(): array
     {
         $images = [
@@ -51,8 +52,11 @@ class LocationFactory extends Factory
         ];
 
         return [
+            // Genera un código único para la sede entre 1000 y 9999
             'code' => $this->faker->unique()->numberBetween(1000, 9999),
+            // Genera un nombre de compañía ficticio como nombre de la sede
             'name' => $this->faker->company,
+            // Asigna aleatoriamente una imagen de la lista anterior
             'image' => $this->faker->randomElement($images),
         ];
     }
