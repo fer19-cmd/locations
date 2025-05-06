@@ -2,23 +2,23 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\LocationController;
+use App\Http\Controllers\Api\LoginController;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| Aquí se registran las rutas de la API. Estas rutas están dentro del grupo
+| de middleware "api" y se agrupan automáticamente por Laravel.
 |
 */
-//Recursos de la api(Metodos)
-Route::apiResource('V1/locations', App\Http\Controllers\Api\V1\LocationController::class)
-    ->only(['index','show'])
+
+// Rutas protegidas con Sanctum
+Route::apiResource('V1/locations', LocationController::class)
+    ->only(['index', 'show'])
     ->middleware('auth:sanctum');
 
-Route::post('login',[App\Http\Controllers\Api\LoginController::class, 'login']);
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+// Ruta pública de login
+Route::post('login', [LoginController::class, 'login']);
